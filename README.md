@@ -218,17 +218,6 @@ ruff check . && ruff format --check .
 Tests that parse PDFs skip automatically if PyMuPDF is missing. Local-backend tests use the hashing
 embedder and a word-overlap stand-in for the cross-encoder, so they need no model downloads.
 
-## Tested and not tested
-
-The code was developed in an environment without PyMuPDF, FastAPI, SQLAlchemy or Docker installed.
-What was actually done: every Python file was syntax-checked with `py_compile`; the sample DOCX and
-PDF files were generated and the DOCX was re-opened with python-docx; YAML configuration files
-were loaded. **Not tested:** the pytest suite, every API endpoint, the Docker Compose stack and its
-health checks, the Qdrant and OpenSearch adapters, MinIO, model downloads and the sentence
-transformer and cross-encoder paths, the Streamlit dashboard, the Airflow DAG and its virtualenv
-setup, the evaluation numbers, and the LLM client. Expect to fix small defects when you first run
-them; please report or fix them.
-
 ## Known limitations
 
 - Single process, no job queue: `POST /documents/ingest` runs synchronously.
@@ -250,4 +239,4 @@ answer evaluation, kept separate from the deterministic metrics; larger labelled
 
 ## License
 
-MIT, see [LICENSE](LICENSE).
+MIT
