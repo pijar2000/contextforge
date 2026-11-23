@@ -1,0 +1,314 @@
+{
+  "description": "Deterministic retrieval evaluation set over datasets/sample_documents. Relevant chunks are the chunks of the expected sources that contain an expected keyword.",
+  "queries": [
+    {
+      "id": "q01",
+      "question": "What does error ERR-4021 mean?",
+      "category": "exact_keyword",
+      "expected_sources": [
+        "engineering/api-gateway-runbook.md"
+      ],
+      "expected_keywords": [
+        "ERR-4021"
+      ]
+    },
+    {
+      "id": "q02",
+      "question": "How do I revert a bad gateway deployment?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "engineering/api-gateway-runbook.md"
+      ],
+      "expected_keywords": [
+        "rollback"
+      ]
+    },
+    {
+      "id": "q03",
+      "question": "requests per minute allowed for each API key",
+      "category": "natural_question",
+      "expected_sources": [
+        "engineering/api-gateway-runbook.md"
+      ],
+      "expected_keywords": [
+        "600 requests"
+      ]
+    },
+    {
+      "id": "q04",
+      "question": "How long are audit logs kept?",
+      "category": "natural_question",
+      "expected_sources": [
+        "engineering/log-retention-spec.md"
+      ],
+      "expected_keywords": [
+        "audit logs"
+      ]
+    },
+    {
+      "id": "q05",
+      "question": "How long do we store debugging output before it is erased?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "engineering/log-retention-spec.md"
+      ],
+      "expected_keywords": [
+        "debug logs"
+      ]
+    },
+    {
+      "id": "q06",
+      "question": "Who coordinates the response during a major outage?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "engineering/incident-response.html"
+      ],
+      "expected_keywords": [
+        "incident commander"
+      ]
+    },
+    {
+      "id": "q07",
+      "question": "When must a postmortem be written?",
+      "category": "natural_question",
+      "expected_sources": [
+        "engineering/incident-response.html"
+      ],
+      "expected_keywords": [
+        "5 business days"
+      ]
+    },
+    {
+      "id": "q08",
+      "question": "Which signature algorithm protects firmware images?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "engineering/firmware-update-spec.docx"
+      ],
+      "expected_keywords": [
+        "Ed25519"
+      ]
+    },
+    {
+      "id": "q09",
+      "question": "What percentages are used in the staged firmware rollout?",
+      "category": "natural_question",
+      "expected_sources": [
+        "engineering/firmware-update-spec.docx"
+      ],
+      "expected_keywords": [
+        "25 percent"
+      ]
+    },
+    {
+      "id": "q10",
+      "question": "How many approvals does a pull request need?",
+      "category": "natural_question",
+      "expected_sources": [
+        "engineering/code-review-guidelines.txt"
+      ],
+      "expected_keywords": [
+        "two engineers"
+      ]
+    },
+    {
+      "id": "q11",
+      "question": "What is the heaviest load the HX-200 can carry?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "product/hx200-gripper-manual.md"
+      ],
+      "expected_keywords": [
+        "payload"
+      ]
+    },
+    {
+      "id": "q12",
+      "question": "Operating temperature range of the gripper",
+      "category": "natural_question",
+      "expected_sources": [
+        "product/hx200-gripper-manual.md"
+      ],
+      "expected_keywords": [
+        "operating temperature"
+      ]
+    },
+    {
+      "id": "q13",
+      "question": "How often should the hydraulic oil be changed?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "product/hx200-maintenance-guide.pdf"
+      ],
+      "expected_keywords": [
+        "2,000 operating hours"
+      ]
+    },
+    {
+      "id": "q14",
+      "question": "The gripper loses its grip on loads, what should I check?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "product/hx200-maintenance-guide.pdf"
+      ],
+      "expected_keywords": [
+        "6.5 bar"
+      ]
+    },
+    {
+      "id": "q15",
+      "question": "ISO VG 32",
+      "category": "exact_keyword",
+      "expected_sources": [
+        "product/hx200-maintenance-guide.pdf"
+      ],
+      "expected_keywords": [
+        "ISO VG 32"
+      ]
+    },
+    {
+      "id": "q16",
+      "question": "When does the HX-300 launch?",
+      "category": "natural_question",
+      "expected_sources": [
+        "product/roadmap-2026.md"
+      ],
+      "expected_keywords": [
+        "HX-300"
+      ]
+    },
+    {
+      "id": "q17",
+      "question": "What is the speed limit for forklifts indoors?",
+      "category": "natural_question",
+      "expected_sources": [
+        "operations/warehouse-safety-procedure.txt"
+      ],
+      "expected_keywords": [
+        "8 km/h"
+      ]
+    },
+    {
+      "id": "q18",
+      "question": "Where do we gather when the fire alarm goes off?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "operations/warehouse-safety-procedure.txt"
+      ],
+      "expected_keywords": [
+        "assembly point"
+      ]
+    },
+    {
+      "id": "q19",
+      "question": "What are the payment terms for new vendors?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "operations/supplier-onboarding.docx"
+      ],
+      "expected_keywords": [
+        "net 45"
+      ]
+    },
+    {
+      "id": "q20",
+      "question": "How much capacity do the cells keep after 1000 cycles?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "research/battery-degradation-study.pdf"
+      ],
+      "expected_keywords": [
+        "92 percent"
+      ]
+    },
+    {
+      "id": "q21",
+      "question": "Does heat make the batteries age faster?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "research/battery-degradation-study.pdf"
+      ],
+      "expected_keywords": [
+        "elevated temperature",
+        "81 percent"
+      ]
+    },
+    {
+      "id": "q22",
+      "question": "How many days per week can I work from home?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "policies/remote-work-policy.md"
+      ],
+      "expected_keywords": [
+        "3 days"
+      ]
+    },
+    {
+      "id": "q23",
+      "question": "Is there an allowance for buying a home office desk?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "policies/remote-work-policy.md"
+      ],
+      "expected_keywords": [
+        "stipend"
+      ]
+    },
+    {
+      "id": "q24",
+      "question": "What is the minimum password length?",
+      "category": "natural_question",
+      "expected_sources": [
+        "policies/information-security-policy.html"
+      ],
+      "expected_keywords": [
+        "14 characters"
+      ]
+    },
+    {
+      "id": "q25",
+      "question": "Who should I tell about a suspicious email?",
+      "category": "paraphrase",
+      "expected_sources": [
+        "policies/information-security-policy.html"
+      ],
+      "expected_keywords": [
+        "security@halvorsen.example"
+      ]
+    },
+    {
+      "id": "q26",
+      "question": "daily food allowance on business trips",
+      "category": "paraphrase",
+      "expected_sources": [
+        "policies/travel-and-expense-policy.md"
+      ],
+      "expected_keywords": [
+        "meal allowance"
+      ]
+    },
+    {
+      "id": "q27",
+      "question": "salary range for band E3",
+      "category": "exact_keyword",
+      "expected_sources": [
+        "restricted/executive-compensation-bands.md"
+      ],
+      "expected_keywords": [
+        "Band E3"
+      ]
+    },
+    {
+      "id": "q28",
+      "question": "Project Lighthouse acquisition price",
+      "category": "exact_keyword",
+      "expected_sources": [
+        "restricted/acquisition-notes.txt"
+      ],
+      "expected_keywords": [
+        "42 million"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head><title>Incident Response Process</title>
+<style>body { font-family: sans-serif; }</style>
+<script>console.log("tracking");</script></head>
+<body>
+<nav><a href="/">Home</a> | <a href="/wiki">Wiki</a></nav>
+<h1>Incident Response Process</h1>
+<p>This page describes how engineering responds to production incidents.</p>
+
+<h2>Severity levels</h2>
+<table>
+<tr><th>Level</th><th>Definition</th><th>Response target</th></tr>
+<tr><td>SEV1</td><td>Customer-wide outage or data loss</td><td>15 minutes</td></tr>
+<tr><td>SEV2</td><td>Major feature degraded for many customers</td><td>1 hour</td></tr>
+<tr><td>SEV3</td><td>Minor degradation with a workaround</td><td>Next business day</td></tr>
+</table>
+
+<h2>Roles</h2>
+<p>For every SEV1 and SEV2 the on-call engineer appoints an incident commander. The incident
+commander coordinates the response and makes the decisions; they do not debug. A communications
+lead posts updates to the status page every 30 minutes.</p>
+<ul>
+<li>Incident commander: owns the timeline and decisions</li>
+<li>Communications lead: customer and internal updates</li>
+<li>Subject matter experts: investigate and fix</li>
+</ul>
+
+<h2>Postmortems</h2>
+<p>A blameless postmortem must be written within 5 business days of a SEV1 or SEV2 incident and
+reviewed in the weekly reliability meeting.</p>
+<footer>Copyright Halvorsen Robotics. Internal use only.</footer>
+</body>
+</html>

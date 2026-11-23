@@ -1,0 +1,20 @@
+CODE REVIEW GUIDELINES
+
+Every change to the main branch goes through a pull request. This document describes what
+reviewers and authors are expected to do.
+
+REQUIRED APPROVALS
+
+A pull request needs approval from at least two engineers, one of whom must own the affected
+module. Authors may not approve their own changes. Continuous integration must be green before
+merging.
+
+PULL REQUEST SIZE
+
+Keep pull requests under 400 changed lines where possible. Larger changes should be split into
+a series of reviewable steps or discussed with the team beforehand.
+
+REVIEW TURNAROUND
+
+Reviewers respond within one business day. If a review is blocked, say so on the pull request
+instead of leaving it unanswered.

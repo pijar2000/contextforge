@@ -1,0 +1,73 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 430 >>
+stream
+BT /F2 18 Tf 50 772 Td (Battery Degradation Study 2025) Tj ET
+BT /F2 14 Tf 50 730 Td (Methodology) Tj ET
+BT /F1 11 Tf 50 700 Td (We cycled 48 lithium iron phosphate cells at three ambient temperatures: 15, 25 and 45) Tj ET
+BT /F1 11 Tf 50 685 Td (degrees Celsius. Each cell was charged at 0.5C and discharged at 1C.) Tj ET
+BT /F1 9 Tf 50 815 Td (Halvorsen Robotics - Research Office) Tj ET
+BT /F1 9 Tf 50 40 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 521 >>
+stream
+BT /F2 14 Tf 50 772 Td (Results) Tj ET
+BT /F1 11 Tf 50 742 Td (At 25 degrees Celsius the cells retained 92 percent of their capacity after 1,000 cycles.) Tj ET
+BT /F1 11 Tf 50 727 Td (At 45 degrees Celsius the retention fell to 81 percent.) Tj ET
+BT /F1 11 Tf 50 704 Td (Elevated temperature accelerated ageing in every test group, with the strongest effect) Tj ET
+BT /F1 11 Tf 50 689 Td (after 500 cycles.) Tj ET
+BT /F1 9 Tf 50 815 Td (Halvorsen Robotics - Research Office) Tj ET
+BT /F1 9 Tf 50 40 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 341 >>
+stream
+BT /F2 14 Tf 50 772 Td (Recommendations) Tj ET
+BT /F1 11 Tf 50 742 Td (Keep battery enclosures below 35 degrees Celsius during charging. A passive heat spreader) Tj ET
+BT /F1 11 Tf 50 727 Td (was sufficient in the pilot units.) Tj ET
+BT /F1 9 Tf 50 815 Td (Halvorsen Robotics - Research Office) Tj ET
+BT /F1 9 Tf 50 40 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000225 00000 n 
+0000000327 00000 n 
+0000000808 00000 n 
+0000000944 00000 n 
+0000001516 00000 n 
+0000001652 00000 n 
+0000002044 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+2181
+%%EOF

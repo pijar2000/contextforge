@@ -1,0 +1,141 @@
+# Core stack:        docker compose up -d --build
+# With Airflow too:  docker compose --profile airflow up -d --build
+name: contextforge
+
+x-app-env: &app-env
+  BACKEND: services
+  DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-contextforge}:${POSTGRES_PASSWORD:-contextforge_dev}@postgres:5432/${POSTGRES_DB:-contextforge}
+  MINIO_ENDPOINT: minio:9000
+  MINIO_ACCESS_KEY: ${MINIO_ACCESS_KEY:-contextforge}
+  MINIO_SECRET_KEY: ${MINIO_SECRET_KEY:-contextforge_dev_secret}
+  MINIO_BUCKET: ${MINIO_BUCKET:-contextforge-raw}
+  QDRANT_URL: http://qdrant:6333
+  OPENSEARCH_URL: http://opensearch:9200
+  EMBEDDING_BACKEND: ${EMBEDDING_BACKEND:-sentence-transformers}
+  EMBEDDING_MODEL: ${EMBEDDING_MODEL:-sentence-transformers/all-MiniLM-L6-v2}
+  RERANKER_MODEL: ${RERANKER_MODEL:-cross-encoder/ms-marco-MiniLM-L-6-v2}
+  LLM_BASE_URL: ${LLM_BASE_URL:-}
+  LLM_MODEL: ${LLM_MODEL:-}
+  LLM_API_KEY: ${LLM_API_KEY:-}
+  STAGING_DIR: /data/staging
+
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-contextforge}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-contextforge_dev}
+      POSTGRES_DB: ${POSTGRES_DB:-contextforge}
+    ports: ["5432:5432"]
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./sql:/docker-entrypoint-initdb.d:ro
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-contextforge} -d ${POSTGRES_DB:-contextforge}"]
+      interval: 5s
+      timeout: 5s
+      retries: 20
+
+  minio:
+    image: minio/minio:latest
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: ${MINIO_ACCESS_KEY:-contextforge}
+      MINIO_ROOT_PASSWORD: ${MINIO_SECRET_KEY:-contextforge_dev_secret}
+    ports: ["9000:9000", "9001:9001"]
+    volumes: [miniodata:/data]
+    healthcheck:
+      test: ["CMD", "mc", "ready", "local"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  qdrant:
+    image: qdrant/qdrant:latest
+    ports: ["6333:6333"]
+    volumes: [qdrantdata:/qdrant/storage]
+    # The image has no curl/wget; probe the HTTP port with bash's /dev/tcp.
+    healthcheck:
+      test: ["CMD-SHELL", "bash -c 'exec 3<>/dev/tcp/127.0.0.1/6333 && printf \"GET /readyz HTTP/1.0\\r\\n\\r\\n\" >&3 && grep -q \"200\" <&3'"]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+  opensearch:
+    image: opensearchproject/opensearch:2.15.0
+    environment:
+      discovery.type: single-node
+      DISABLE_SECURITY_PLUGIN: "true"   # local development only
+      DISABLE_INSTALL_DEMO_CONFIG: "true"
+      OPENSEARCH_JAVA_OPTS: -Xms512m -Xmx512m
+    ulimits:
+      memlock: {soft: -1, hard: -1}
+    ports: ["9200:9200"]
+    volumes: [osdata:/usr/share/opensearch/data]
+    healthcheck:
+      test: ["CMD-SHELL", "curl -sf http://localhost:9200/_cluster/health || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 20
+
+  api:
+    build: .
+    environment: *app-env
+    ports: ["8000:8000"]
+    volumes:
+      - ./datasets:/app/datasets
+      - ./config:/app/config:ro
+      - ./reports:/app/reports
+      - modelcache:/models
+      - staging:/data/staging
+    depends_on:
+      postgres: {condition: service_healthy}
+      minio: {condition: service_healthy}
+      qdrant: {condition: service_healthy}
+      opensearch: {condition: service_healthy}
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://localhost:8000/health')"]
+      interval: 15s
+      timeout: 10s
+      retries: 10
+      start_period: 20s
+
+  dashboard:
+    build: .
+    command: ["streamlit", "run", "dashboard/app.py", "--server.port=8501", "--server.address=0.0.0.0"]
+    environment:
+      API_URL: http://api:8000
+    ports: ["8501:8501"]
+    depends_on: [api]
+
+  airflow:
+    profiles: ["airflow"]
+    build:
+      context: .
+      dockerfile: docker/airflow.Dockerfile
+    command: standalone
+    environment:
+      <<: *app-env
+      AIRFLOW__CORE__EXECUTOR: LocalExecutor
+      AIRFLOW__DATABASE__SQL_ALCHEMY_CONN: postgresql+psycopg2://${POSTGRES_USER:-contextforge}:${POSTGRES_PASSWORD:-contextforge_dev}@postgres:5432/airflow
+      AIRFLOW__CORE__LOAD_EXAMPLES: "false"
+      SOURCE_ROOT: /opt/airflow/sample_documents
+      ACCESS_POLICY_FILE: /opt/airflow/config/access_policies.yaml
+      USERS_FILE: /opt/airflow/config/users.yaml
+    ports: ["8080:8080"]
+    volumes:
+      - ./dags:/opt/airflow/dags:ro
+      - ./datasets/sample_documents:/opt/airflow/sample_documents:ro
+      - ./config:/opt/airflow/config:ro
+      - modelcache:/models
+      - staging:/data/staging
+    depends_on:
+      postgres: {condition: service_healthy}
+
+volumes:
+  pgdata:
+  miniodata:
+  qdrantdata:
+  osdata:
+  modelcache:
+  staging:

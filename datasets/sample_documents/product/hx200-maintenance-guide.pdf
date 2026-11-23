@@ -1,0 +1,74 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [6 0 R 8 0 R 10 0 R] /Count 3 >>
+endobj
+3 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>
+endobj
+4 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>
+endobj
+5 0 obj
+<< /Length 505 >>
+stream
+BT /F2 18 Tf 50 772 Td (HX-200 Maintenance Guide) Tj ET
+BT /F2 14 Tf 50 730 Td (Maintenance schedule) Tj ET
+BT /F1 11 Tf 50 700 Td (Inspect the hydraulic seals every 500 operating hours. Replace any seal that shows) Tj ET
+BT /F1 11 Tf 50 685 Td (cracking or fluid residue. Record each inspection in the asset log.) Tj ET
+BT /F1 11 Tf 50 662 Td (Clean the finger pads weekly with isopropyl alcohol.) Tj ET
+BT /F1 9 Tf 50 815 Td (Halvorsen Robotics - Internal) Tj ET
+BT /F1 9 Tf 50 40 Td (Page 1 of 3) Tj ET
+endstream
+endobj
+6 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 5 0 R >>
+endobj
+7 0 obj
+<< /Length 454 >>
+stream
+BT /F2 14 Tf 50 772 Td (Fluid replacement) Tj ET
+BT /F1 11 Tf 50 742 Td (Replace the hydraulic fluid every 2,000 operating hours. Use ISO VG 32 fluid only; mixing) Tj ET
+BT /F1 11 Tf 50 727 Td (fluid grades damages the seals.) Tj ET
+BT /F1 11 Tf 50 704 Td (Drain the reservoir completely, refill to the marked level and bleed the line at 6.5 bar.) Tj ET
+BT /F1 9 Tf 50 815 Td (Halvorsen Robotics - Internal) Tj ET
+BT /F1 9 Tf 50 40 Td (Page 2 of 3) Tj ET
+endstream
+endobj
+8 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 7 0 R >>
+endobj
+9 0 obj
+<< /Length 502 >>
+stream
+BT /F2 14 Tf 50 772 Td (Troubleshooting) Tj ET
+BT /F1 11 Tf 50 742 Td (If the gripper slips or loses grip on a load, first check the supply pressure. It must) Tj ET
+BT /F1 11 Tf 50 727 Td (read 6.5 bar. Low pressure usually points to a worn pump or an air bubble in the line.) Tj ET
+BT /F1 11 Tf 50 704 Td (If the fingers move slowly in cold conditions, warm the unit above -10 degrees Celsius.) Tj ET
+BT /F1 9 Tf 50 815 Td (Halvorsen Robotics - Internal) Tj ET
+BT /F1 9 Tf 50 40 Td (Page 3 of 3) Tj ET
+endstream
+endobj
+10 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595 842] /Resources << /Font << /F1 3 0 R /F2 4 0 R >> >> /Contents 9 0 R >>
+endobj
+xref
+0 11
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000128 00000 n 
+0000000225 00000 n 
+0000000327 00000 n 
+0000000883 00000 n 
+0000001019 00000 n 
+0000001524 00000 n 
+0000001660 00000 n 
+0000002213 00000 n 
+trailer
+<< /Size 11 /Root 1 0 R >>
+startxref
+2350
+%%EOF

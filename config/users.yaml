@@ -1,0 +1,34 @@
+# Development users. Keys are fictional demo values (cf-dev-<name>); only their SHA-256 digests
+# are stored here. Generate a digest for a new key with:  contextforge hash-key <key>
+# Do not reuse this file or these keys outside local development.
+users:
+  - user_id: alice
+    display_name: Alice Admin
+    tenant_id: halvorsen
+    roles: [administrator]
+    api_key_sha256: f05a0f978cb50c25a1872cc7d55e93d8590d8901259860b2984e6135cbd898f8
+  - user_id: bob
+    display_name: Bob Engineer
+    tenant_id: halvorsen
+    roles: [engineering]
+    api_key_sha256: 6dfb0531bc3fd5f5b641227695b2738c873d607247d84ad99baf1ad6838cf405
+  - user_id: carol
+    display_name: Carol Product
+    tenant_id: halvorsen
+    roles: [product]
+    api_key_sha256: 7480cf3eefbb36bd08caaeec0bab98de670bcea495afa6af630f67568d221fbe
+  - user_id: dave
+    display_name: Dave Operations
+    tenant_id: halvorsen
+    roles: [operations]
+    api_key_sha256: e5087842537532a00f273c57d1d7e8ac0d2b59d25043baca08641b70fa1d9d48
+  - user_id: erin
+    display_name: Erin Employee
+    tenant_id: halvorsen
+    roles: [general_employee]
+    api_key_sha256: 766d20b39f8a8facd2d912c60d482bf345502be5e93ccbe101c0bd112ba4fb45
+  - user_id: frank
+    display_name: Frank (other tenant)
+    tenant_id: northwind-labs
+    roles: [administrator]
+    api_key_sha256: 6d414101103dc954d97fdc52f4d3e6c1a69023f733077bf9255de83daf74f73b

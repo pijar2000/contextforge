@@ -1,0 +1,29 @@
+# Maps source paths (relative to SOURCE_ROOT) to an owner and the roles allowed to read them.
+# The first matching rule wins. Administrators can always read everything in their tenant.
+# Files that match no rule fall back to `default`, which is administrators only.
+default:
+  owner_id: system
+  allowed_groups: [administrator]
+
+rules:
+  - match: "restricted/*"
+    owner_id: executive-office
+    allowed_groups: [administrator]
+  - match: "engineering/*"
+    owner_id: engineering-docs
+    allowed_groups: [engineering, administrator]
+  - match: "product/roadmap*"
+    owner_id: product-management
+    allowed_groups: [product, administrator]
+  - match: "product/*"
+    owner_id: product-management
+    allowed_groups: [product, engineering, operations, general_employee, administrator]
+  - match: "operations/*"
+    owner_id: operations-docs
+    allowed_groups: [operations, administrator]
+  - match: "research/*"
+    owner_id: research-office
+    allowed_groups: [engineering, product, administrator]
+  - match: "policies/*"
+    owner_id: people-and-compliance
+    allowed_groups: [administrator, engineering, product, operations, general_employee]
