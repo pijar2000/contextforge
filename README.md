@@ -239,4 +239,4 @@ answer evaluation, kept separate from the deterministic metrics; larger labelled
 
 ## License
 
-MIT..
+MIT.
